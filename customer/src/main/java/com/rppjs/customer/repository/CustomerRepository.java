@@ -1,6 +1,6 @@
 package com.rppjs.customer.repository;
 
-import com.rppjs.customer.Customer;
+import com.rppjs.customer.entities.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

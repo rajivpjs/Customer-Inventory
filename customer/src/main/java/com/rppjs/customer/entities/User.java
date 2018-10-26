@@ -1,15 +1,21 @@
-package com.rppjs.customer;
+package com.rppjs.customer.entities;
 
-import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
-@Entity
 public class User {
 
+    @OneToOne(mappedBy = "customerId")
+    private Customer customer;
     private String emailAddress;
     private String password;
-    @OneToOne
-    private Long customerId;
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     public String getEmailAddress() {
         return emailAddress;
@@ -25,13 +31,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Long getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
     }
 }
