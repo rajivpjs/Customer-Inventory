@@ -1,4 +1,4 @@
-package com.rppjs.customer;
+package com.rppjs.customer.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
