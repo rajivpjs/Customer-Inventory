@@ -40,7 +40,7 @@ public class H2Configuration {
         return builder.dataSource(mysqlDataSource())
                 .properties((hibernateProperties()))
                 .packages(Customer.class, User.class)
-                .persistenceUnit("mysqlPU")
+                .persistenceUnit("h2PU")
                 .build();
     }
 
