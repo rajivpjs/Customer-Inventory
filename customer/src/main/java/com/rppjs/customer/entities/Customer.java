@@ -12,7 +12,6 @@ public class Customer {
     private Long customerId;
     private String name;
     private String surname;
-    private String emailAddress;
 
     public Long getCustomerId() {
         return customerId;
@@ -36,13 +35,5 @@ public class Customer {
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
     }
 }

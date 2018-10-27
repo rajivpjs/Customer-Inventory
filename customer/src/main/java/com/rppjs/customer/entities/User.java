@@ -1,12 +1,15 @@
 package com.rppjs.customer.entities;
 
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
+@Entity
 public class User {
 
-    @OneToOne(mappedBy = "customerId")
-    private Customer customer;
+    @Id
     private String emailAddress;
+    @OneToOne
+    @JoinColumn(name = "customerId")
+    private Customer customer;
     private String password;
 
     public Customer getCustomer() {
