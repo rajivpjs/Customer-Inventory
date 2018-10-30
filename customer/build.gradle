@@ -13,7 +13,8 @@ repositories {
 
 dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.0.6.RELEASE'
-    compile group: 'org.mapstruct', name:'mapstruct', version :'1.2.0.Final'
+    compile group: 'org.mapstruct', name:'mapstruct-jdk8', version: '1.2.0.Final'
+    compile group: 'org.mapstruct', name:'mapstruct-processor', version: '1.2.0.Final'
 
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.0.6.RELEASE'
     testCompile group: 'com.h2database', name: 'h2', version: '1.4.197'
