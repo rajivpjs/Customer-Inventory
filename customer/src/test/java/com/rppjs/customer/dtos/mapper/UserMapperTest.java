@@ -1,6 +1,7 @@
 package com.rppjs.customer.dtos.mapper;
 
 import com.rppjs.customer.dtos.RegistrationRequestDTO;
+import com.rppjs.customer.dtos.RegistrationResponseDTO;
 import com.rppjs.customer.entities.User;
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,6 +25,16 @@ public class UserMapperTest {
         Assert.assertEquals("pass", user.getPassword());
         Assert.assertEquals("name", user.getCustomer().getName());
         Assert.assertEquals("lastName", user.getCustomer().getSurname());
+    }
+
+    @Test
+    public void testUserToRegistrationResponse_expectsRegistrationResponse() {
+        User user = new User();
+        user.setEmailAddress("user@gmail.com");
+
+        RegistrationResponseDTO responseDTO = userMapper.userToRegistrationResponse(user);
+
+        Assert.assertEquals("user@gmail.com", responseDTO.email);
     }
 
 }

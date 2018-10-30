@@ -1,6 +1,7 @@
 package com.rppjs.customer.dtos.mapper;
 
 import com.rppjs.customer.dtos.RegistrationRequestDTO;
+import com.rppjs.customer.dtos.RegistrationResponseDTO;
 import com.rppjs.customer.entities.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -16,4 +17,9 @@ public interface UserMapper {
             @Mapping(source = "lastName", target = "customer.surname")
     })
     User registrationRequestToUser(RegistrationRequestDTO req);
+
+    @Mappings({
+            @Mapping(source = "emailAddress", target = "email")
+    })
+    RegistrationResponseDTO userToRegistrationResponse(User user);
 }
