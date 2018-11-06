@@ -16,7 +16,7 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = H2Configuration.class)
 @Transactional
-public class UserRepositoryTest {
+public class UserRepositoryIT {
 
     @Autowired
     private UserRepository userRepository;
