@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = H2Configuration.class)
 @Transactional
-public class CustomerRepositoryTest {
+public class CustomerRepositoryIT {
 
     @Autowired
     private CustomerRepository customerRepository;
