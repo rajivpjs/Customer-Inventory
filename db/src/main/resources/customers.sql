@@ -14,6 +14,5 @@ before insert ON customers
 for each row
 begin
   insert into customers_seq VALUES (NULL);
-  SET NEW.id = CONCAT('CUST', LPAD(LAST_INSERT_ID(), 3, '0'));
-end$$;
-delimiter;
+  SET NEW.customerId = CONCAT('CUST', LPAD(LAST_INSERT_ID(), 3, '0'));
+end$$; delimiter;
