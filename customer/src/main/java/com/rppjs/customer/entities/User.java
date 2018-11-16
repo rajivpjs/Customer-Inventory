@@ -2,6 +2,7 @@ package com.rppjs.customer.entities;
 
 import javax.persistence.*;
 
+@Table(name = "users")
 @Entity
 public class User {
 
