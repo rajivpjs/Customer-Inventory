@@ -1,7 +1,6 @@
 package com.rppjs.customer.entities;
 
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 
 @Table(name = "customers")
