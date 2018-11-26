@@ -11,6 +11,7 @@ public class User {
     @OneToOne
     @JoinColumn(name = "customerId")
     private Customer customer;
+    @Column(name = "passw")
     private String password;
 
     public Customer getCustomer() {
