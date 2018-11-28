@@ -31,7 +31,6 @@ public class RegistrationEndpoint {
 
     @RequestMapping(value = "/customer", method = RequestMethod.POST)
     public ResponseEntity<RegistrationResponseDTO> registerCustomer(@RequestBody RegistrationRequestDTO req) {
-        System.out.print(req);
         User user = userMapper.registrationRequestToUser(req);
 
         customerRepository.save(user.getCustomer());
