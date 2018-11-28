@@ -33,7 +33,7 @@ public class MySqlConfiguration {
 
     @Bean
     public DataSource mysqlDataSource() {
-        return DataSourceBuilder.create().url("jdbc:mysql://localhost/Customer_Inventory")
+        return DataSourceBuilder.create().url("jdbc:mysql://localhost:3306/Customer_Inventory")
                 .driverClassName("com.mysql.jdbc.Driver")
                 .username("root")
                 .password("pass").build();
