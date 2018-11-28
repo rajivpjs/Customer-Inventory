@@ -2,6 +2,7 @@ package com.rppjs.customer.entities;
 
 import javax.persistence.*;
 
+@Table(name = "users")
 @Entity
 public class User {
 
@@ -10,6 +11,7 @@ public class User {
     @OneToOne
     @JoinColumn(name = "customerId")
     private Customer customer;
+    @Column(name = "passw")
     private String password;
 
     public Customer getCustomer() {

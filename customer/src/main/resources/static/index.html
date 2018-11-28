@@ -26,21 +26,21 @@
         <div id="signup">   
           <h1>Sign Up</h1>
           
-          <form action="/" method="post">
+          <form id="signup-form" action="/register/customer" method="post">
           
           <div class="top-row">
             <div class="field-wrap">
               <label>
                 First Name<span class="req">*</span>
               </label>
-              <input type="text" required autocomplete="off" />
+              <input id="firstName" name="firstName" type="text" required autocomplete="off" />
             </div>
         
             <div class="field-wrap">
               <label>
                 Last Name<span class="req">*</span>
               </label>
-              <input type="text"required autocomplete="off"/>
+              <input id="lastName" name="lastName" type="text" required autocomplete="off"/>
             </div>
           </div>
 
@@ -48,17 +48,17 @@
             <label>
               Email Address<span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off"/>
+            <input id="email" name="email" type="email" required autocomplete="off"/>
           </div>
           
           <div class="field-wrap">
             <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off"/>
+            <input id="pass" name="pass" type="password" required autocomplete="off"/>
           </div>
           
-          <button type="submit" class="button button-block"/>Sign Up</button>
+          <button id="submit-signup-form" type="submit" class="button button-block"/>Sign Up</button>
           
           </form>
 
@@ -96,5 +96,6 @@
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script  src="js/index.js"></script>
+    <script src="js/signup.js"></script>
 </body>
 </html>

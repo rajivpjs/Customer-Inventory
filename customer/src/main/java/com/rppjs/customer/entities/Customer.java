@@ -1,23 +1,25 @@
 package com.rppjs.customer.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.hibernate.annotations.GenericGenerator;
+import javax.persistence.*;
 
+@Table(name = "customers")
 @Entity
 public class Customer {
 
     @Id
-    @GeneratedValue
-    private Long customerId;
+    @GeneratedValue( generator = "uuid")
+    @GenericGenerator(name = "uuid",
+            strategy = "uuid")
+    private String customerId;
     private String name;
     private String surname;
 
-    public Long getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Long customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 
