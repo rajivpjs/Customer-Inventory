@@ -11,13 +11,13 @@ $("#submit-signup-form").on('click', function(e) {
     $.ajax({
            type: "POST",
            url: "/register/customer",
-           headers: { "Content-type" : "application/json" },
            data: JSON.stringify(json),
            dataType: "json",
            contentType : "application/json",
            success: function(data)
            {
-               // window.location.href = "/loggedin.html";
+               document.getElementById("signup-form").reset();
+               document.getElementById("signup-title").innerHTML = "You have successfully registered";
            },
            error: function(data) {
                alert(data);
