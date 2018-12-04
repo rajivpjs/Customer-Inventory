@@ -3,7 +3,6 @@ package com.rppjs.customer.online.portal.endpoints;
 import static org.junit.Assert.assertEquals;
 import com.rppjs.customer.online.portal.Application;
 import com.rppjs.customer.online.portal.dtos.RegistrationRequestDTO;
-import com.rppjs.customer.online.portal.dtos.mapper.UserMapper;
 import org.json.JSONException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,8 +21,6 @@ public class RegistrationEndpointIT {
 
     @Autowired
     private TestRestTemplate restTemplate;
-    @Autowired
-    private UserMapper userMapper;
 
     @Test
     public void testRegisterCustomer_expectsHttpResponse200WithValidJSONBody() throws JSONException {
