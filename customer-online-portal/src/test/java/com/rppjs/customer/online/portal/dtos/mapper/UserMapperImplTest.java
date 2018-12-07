@@ -5,11 +5,10 @@ import com.rppjs.customer.online.portal.dtos.RegistrationResponseDTO;
 import com.rppjs.customer.online.portal.entities.User;
 import org.junit.Assert;
 import org.junit.Test;
-import org.mapstruct.factory.Mappers;
 
-public class UserMapperTest {
+public class UserMapperImplTest {
 
-    private UserMapper userMapper = Mappers.getMapper(UserMapper.class);
+    private final UserMapper userMapper = new UserMapperImpl();
 
     @Test
     public void testRegistrationRequestToUser_expectsUser() {

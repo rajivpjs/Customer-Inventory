@@ -1,6 +1,9 @@
 package com.rppjs.customer.online.portal.endpoints;
 
 import static org.junit.Assert.*;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import com.rppjs.customer.online.portal.dtos.RegistrationRequestDTO;
 import com.rppjs.customer.online.portal.dtos.RegistrationResponseDTO;
 import com.rppjs.customer.online.portal.dtos.mapper.UserMapper;
@@ -10,16 +13,15 @@ import com.rppjs.customer.online.portal.repository.CustomerRepository;
 import com.rppjs.customer.online.portal.repository.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
-import org.mapstruct.factory.Mappers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.ResponseEntity;
 
 public class RegistrationEndpointTest {
 
-    private UserMapper userMapper = Mappers.getMapper(UserMapper.class);
+    @Mock
+    private UserMapper userMapper;
     @Mock
     private UserRepository userRepository;
     @Mock
@@ -46,14 +48,19 @@ public class RegistrationEndpointTest {
         Customer customer = new Customer();
         User user = new User();
 
-        Mockito.when(customerRepository.save(customer)).thenReturn(customer);
-        Mockito.when(userRepository.save(user)).thenReturn(user);
+        when(userMapper.registrationRequestToUser(req)).thenReturn(user);
+        when(customerRepository.save(customer)).thenReturn(customer);
+        when(userRepository.save(user)).thenReturn(user);
+        when(userMapper.userToRegistrationResponse(user)).thenReturn(expectedResponseDTO);
         
         ResponseEntity<RegistrationResponseDTO> responseDTO = registrationEndpoint.registerCustomer(req);
         assertEquals(200, responseDTO.getStatusCodeValue());
         assertEquals(expectedResponseDTO.email, responseDTO.getBody().email);
-        Mockito.verify(customerRepository).save(Mockito.any(Customer.class));
-        Mockito.verify(userRepository).save(Mockito.any(User.class));
+
+        verify(userMapper).registrationRequestToUser(any(RegistrationRequestDTO.class));
+        verify(customerRepository).save(any(Customer.class));
+        verify(userRepository).save(any(User.class));
+        verify(userMapper).userToRegistrationResponse(any(User.class));
     }
 
 }

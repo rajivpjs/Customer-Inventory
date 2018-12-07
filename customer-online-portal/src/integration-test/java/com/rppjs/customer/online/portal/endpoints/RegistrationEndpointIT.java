@@ -2,6 +2,7 @@ package com.rppjs.customer.online.portal.endpoints;
 
 import static org.junit.Assert.assertEquals;
 import com.rppjs.customer.online.portal.Application;
+import com.rppjs.customer.online.portal.configuration.H2Configuration;
 import com.rppjs.customer.online.portal.dtos.RegistrationRequestDTO;
 import org.json.JSONException;
 import org.junit.Test;
@@ -15,7 +16,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = {Application.class})
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+        classes = {H2Configuration.class, Application.class})
 @Transactional
 public class RegistrationEndpointIT {
 
