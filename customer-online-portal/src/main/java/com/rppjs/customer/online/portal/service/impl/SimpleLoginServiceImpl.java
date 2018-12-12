@@ -10,10 +10,6 @@ public class SimpleLoginServiceImpl implements LoginService {
 
     private UserRepository userRepository;
 
-    public SimpleLoginServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
     @Override
     public boolean login(String username, String password) throws Exception {
         try {

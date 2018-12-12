@@ -20,7 +20,7 @@ public class SimpleLoginServiceImplTest {
     @Mock
     private UserRepository userRepository;
     @InjectMocks
-    private LoginService loginService = new SimpleLoginServiceImpl(userRepository);
+    private LoginService loginService = new SimpleLoginServiceImpl();
 
     @Before
     public void setup() {
