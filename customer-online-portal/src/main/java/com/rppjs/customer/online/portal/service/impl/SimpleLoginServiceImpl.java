@@ -3,11 +3,12 @@ package com.rppjs.customer.online.portal.service.impl;
 import com.rppjs.customer.online.portal.entities.User;
 import com.rppjs.customer.online.portal.repository.UserRepository;
 import com.rppjs.customer.online.portal.service.LoginService;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 public class SimpleLoginServiceImpl implements LoginService {
 
+    @Autowired
     private UserRepository userRepository;
 
     @Override
