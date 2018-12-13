@@ -65,27 +65,27 @@
         </div>
         
         <div id="login">   
-          <h1>Welcome Back!</h1>
+          <h1 id="login-title">Welcome Back!</h1>
           
-          <form action="/" method="post">
+          <form id="login-form" action="/login/customer" method="post">
           
             <div class="field-wrap">
             <label>
               Email Address<span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off"/>
+            <input id="login.email" name="login.email" type="email" required autocomplete="off"/>
           </div>
           
           <div class="field-wrap">
             <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off"/>
+            <input id="login.pass" name="login.pass" type="password" required autocomplete="off"/>
           </div>
           
           <p class="forgot"><a href="#">Forgot Password?</a></p>
           
-          <button class="button button-block"/>Log In</button>
+          <button id="submit-login-form" type="submit" class="button button-block"/>Log In</button>
           
           </form>
 
@@ -97,5 +97,6 @@
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script  src="js/index.js"></script>
     <script src="js/signup.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
