@@ -22,6 +22,10 @@ $("#submit-login-form").on('click', function(e) {
                    document.getElementById("login-form").reset();
                    document.getElementById("login-title").innerHTML = "Please try again or if you don't remember your username or password please click Forgot password";
                }
+               else if(xhr.status == 500) {
+                   document.getElementById("login-form").reset();
+                   document.getElementById("login-title").innerHTML = "Please try again after some time";
+               }
            }
          });
 });
