@@ -36,7 +36,7 @@ public class MySqlConfiguration {
         return DataSourceBuilder.create().url("jdbc:mysql://localhost:3306/Customer_Inventory")
                 .driverClassName("com.mysql.jdbc.Driver")
                 .username("root")
-                .password("pass").build();
+                .password("password").build();
     }
 
     @Bean(name = "entityManagerFactory")
