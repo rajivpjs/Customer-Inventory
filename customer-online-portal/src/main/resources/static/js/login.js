@@ -17,8 +17,11 @@ $("#submit-login-form").on('click', function(e) {
                document.getElementById("login-form").reset();
                document.getElementById("login-title").innerHTML = "You have successfully logged in";
            },
-           error: function(data) {
-               alert(data);
+           error: function(xhr,err) {
+               if(xhr.status == 401) {
+                   document.getElementById("login-form").reset();
+                   document.getElementById("login-title").innerHTML = "Please try again or if you don't remember your username or password please click Forgot password";
+               }
            }
          });
 });
