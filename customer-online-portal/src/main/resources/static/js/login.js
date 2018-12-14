@@ -1,7 +1,7 @@
 $("#submit-login-form").on('click', function(e) {
     var json = {
-            email : $("#login.email").val(),
-            pass  : $("#login.pass").val()
+            email : $("#login-email").val(),
+            pass  : $("#login-pass").val()
             };
 
     e.preventDefault();
