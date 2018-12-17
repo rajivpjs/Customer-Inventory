@@ -1,6 +1,7 @@
 package com.rppjs.customer.online.portal.endpoints;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.Matchers.anyString;
@@ -50,5 +51,13 @@ public class LoginServiceEndpointTest {
         assertEquals(401, responseEntity.getStatusCodeValue());
         assertEquals("user2@gmail.com", responseEntity.getBody().email);
         verify(simpleLoginService).login(anyString(), anyString());
+    }
+
+    @Test
+    public void testLogin_expectsHttpResponse400() throws Exception {
+        ResponseEntity<LoginResponseDTO> responseEntity = loginServiceEndpoint.login(new LoginRequestDTO());
+
+        assertEquals(400, responseEntity.getStatusCodeValue());
+        assertNull(responseEntity.getBody());
     }
 }
