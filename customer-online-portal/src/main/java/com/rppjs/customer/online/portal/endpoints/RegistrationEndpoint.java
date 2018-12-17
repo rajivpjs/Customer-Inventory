@@ -6,6 +6,7 @@ import com.rppjs.customer.online.portal.dtos.mapper.UserMapper;
 import com.rppjs.customer.online.portal.entities.User;
 import com.rppjs.customer.online.portal.repository.CustomerRepository;
 import com.rppjs.customer.online.portal.repository.UserRepository;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +32,10 @@ public class RegistrationEndpoint {
 
     @RequestMapping(value = "/customer", method = RequestMethod.POST)
     public ResponseEntity<RegistrationResponseDTO> registerCustomer(@RequestBody RegistrationRequestDTO req) {
+        if (validateRequestDTO(req)) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
         User user = userMapper.registrationRequestToUser(req);
 
         customerRepository.save(user.getCustomer());
@@ -38,5 +43,14 @@ public class RegistrationEndpoint {
 
         RegistrationResponseDTO responseDTO = userMapper.userToRegistrationResponse(user);
         return new ResponseEntity<RegistrationResponseDTO>(responseDTO, HttpStatus.OK);
+    }
+
+    private boolean validateRequestDTO(@RequestBody RegistrationRequestDTO req) {
+        if(StringUtils.isEmpty(req.email) || StringUtils.isEmpty(req.pass)
+                || StringUtils.isEmpty(req.firstName)
+                || StringUtils.isEmpty(req.lastName)) {
+            return true;
+        }
+        return false;
     }
 }

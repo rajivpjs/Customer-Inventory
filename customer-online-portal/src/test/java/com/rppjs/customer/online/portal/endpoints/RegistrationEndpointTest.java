@@ -63,4 +63,13 @@ public class RegistrationEndpointTest {
         verify(userMapper).userToRegistrationResponse(any(User.class));
     }
 
+    @Test
+    public void testRegisterCustomer_expectsHttpResponse400() throws Exception {
+        ResponseEntity<RegistrationResponseDTO> responseEntity = registrationEndpoint.
+                registerCustomer(new RegistrationRequestDTO());
+
+        assertEquals(400, responseEntity.getStatusCodeValue());
+        assertNull(responseEntity.getBody());
+    }
+
 }
