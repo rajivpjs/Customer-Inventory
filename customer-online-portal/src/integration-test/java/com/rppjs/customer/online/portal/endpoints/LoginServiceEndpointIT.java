@@ -3,7 +3,6 @@ package com.rppjs.customer.online.portal.endpoints;
 import static org.junit.Assert.assertEquals;
 import com.rppjs.customer.online.portal.Application;
 import com.rppjs.customer.online.portal.configuration.H2Configuration;
-import com.rppjs.customer.online.portal.configuration.MyConfig;
 import com.rppjs.customer.online.portal.dtos.LoginRequestDTO;
 import com.rppjs.customer.online.portal.entities.Customer;
 import com.rppjs.customer.online.portal.entities.User;
@@ -28,7 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
         classes = {H2Configuration.class,
-                Application.class, MyConfig.class})
+                Application.class})
 @Transactional
 @TestPropertySource("classpath:application-test.properties")
 @Ignore
