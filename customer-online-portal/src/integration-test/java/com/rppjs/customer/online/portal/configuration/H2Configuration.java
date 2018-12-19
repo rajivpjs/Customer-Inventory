@@ -2,6 +2,7 @@ package com.rppjs.customer.online.portal.configuration;
 
 import com.rppjs.customer.online.portal.entities.Customer;
 import com.rppjs.customer.online.portal.entities.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
@@ -31,9 +32,17 @@ import java.util.stream.Collectors;
 )
 public class H2Configuration {
 
+    @Autowired
+    private MyConfig myConfig;
+
     @Bean
     public DataSource mysqlDataSource() {
-        return DataSourceBuilder.create().url("jdbc:h2:mem:testdb").driverClassName("org.h2.Driver").username("sa").password("sa").build();
+        return DataSourceBuilder.create()
+                .url(myConfig.getJdbcUrl())
+                .driverClassName(myConfig.getDriver())
+                .username(myConfig.getUsername())
+                .password(myConfig.getPassword())
+                .build();
     }
 
     @Bean(name = "entityManagerFactory")
