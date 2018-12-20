@@ -9,6 +9,7 @@ import com.rppjs.customer.online.portal.dtos.LoginRequestDTO;
 import com.rppjs.customer.online.portal.entities.User;
 import com.rppjs.customer.online.portal.repository.UserRepository;
 import org.json.JSONException;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -30,6 +31,7 @@ import org.springframework.transaction.annotation.Transactional;
                 MyConfig.class})
 @Transactional
 @TestPropertySource("classpath:application-test.properties")
+@Ignore
 public class LoginServiceEndpointIT {
 
     @Autowired
