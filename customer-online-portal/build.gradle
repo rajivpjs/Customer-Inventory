@@ -33,7 +33,7 @@ dependencies {
     testCompile group: 'com.h2database', name: 'h2', version: '1.4.197'
     testCompile group: 'org.mockito', name: 'mockito-all', version: '2.+'
     testCompile group: 'org.skyscreamer', name: 'jsonassert', version: '1.2.3'
-    testCompile 'org.apache.httpcomponents:httpclient:4.5.6'
+    testCompile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.6'
 }
 
 configurations {
