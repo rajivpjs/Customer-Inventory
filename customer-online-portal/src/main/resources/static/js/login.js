@@ -18,13 +18,17 @@ $("#submit-login-form").on('click', function(e) {
                document.getElementById("login-title").innerHTML = "You have successfully logged in";
            },
            error: function(xhr,err) {
-               if(xhr.status == 401) {
+               if(xhr.status == 400) {
                    document.getElementById("login-form").reset();
-                   document.getElementById("login-title").innerHTML = "Please try again or if you don't remember your username or password please click Forgot password";
+                   alert("Email or password is empty. Please enter your details");
+               }
+               else if(xhr.status == 401) {
+                   document.getElementById("login-form").reset();
+                   alert("Please try again or if you don't remember your username or password please click Forgot password");
                }
                else if(xhr.status == 500) {
                    document.getElementById("login-form").reset();
-                   document.getElementById("login-title").innerHTML = "Please try again after some time";
+                   alert("Please try again after some time");
                }
            }
          });

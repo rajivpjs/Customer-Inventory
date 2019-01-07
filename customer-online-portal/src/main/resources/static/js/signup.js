@@ -19,8 +19,15 @@ $("#submit-signup-form").on('click', function(e) {
                document.getElementById("signup-form").reset();
                document.getElementById("signup-title").innerHTML = "You have successfully registered";
            },
-           error: function(data) {
-               alert(data);
-           }
+            error: function(xhr,err) {
+                if(xhr.status == 400) {
+                    document.getElementById("signup-form").reset();
+                    alert("Email, password, firstName or lastName is empty. Please enter your details");
+s                }
+                 else if(xhr.status == 500) {
+                    document.getElementById("signup-form").reset();
+                    alert("Please try again after some time");
+                 }
+            }
          });
 });
