@@ -14,20 +14,20 @@ $("#submit-login-form").on('click', function(e) {
            contentType : "application/json",
            success: function(data)
            {
-               document.getElementById("login-form").reset();
-               document.getElementById("login-title").innerHTML = "You have successfully logged in";
+               $("#login-form")[0].reset();
+               $("#login-form")[0].innerHTML = "You have successfully logged in";
            },
            error: function(xhr,err) {
                if(xhr.status == 400) {
-                   document.getElementById("login-form").reset();
+                   $("#login-form")[0].reset();
                    alert("Email or password is empty. Please enter your details");
                }
                else if(xhr.status == 401) {
-                   document.getElementById("login-form").reset();
+                   $("#login-form")[0].reset();
                    alert("Please try again or if you don't remember your username or password please click Forgot password");
                }
                else if(xhr.status == 500) {
-                   document.getElementById("login-form").reset();
+                   $("#login-form")[0].reset();
                    alert("Please try again after some time");
                }
            }
