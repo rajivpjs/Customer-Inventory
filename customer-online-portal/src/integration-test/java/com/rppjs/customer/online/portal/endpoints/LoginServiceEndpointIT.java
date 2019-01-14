@@ -1,15 +1,12 @@
 package com.rppjs.customer.online.portal.endpoints;
 
 import static org.junit.Assert.assertEquals;
-import com.rppjs.customer.online.portal.Application;
 import com.rppjs.customer.online.portal.configuration.H2Configuration;
 import com.rppjs.customer.online.portal.configuration.LoginServiceConfiguration;
 import com.rppjs.customer.online.portal.configuration.MyConfig;
 import com.rppjs.customer.online.portal.dtos.LoginRequestDTO;
-import com.rppjs.customer.online.portal.entities.User;
 import com.rppjs.customer.online.portal.repository.UserRepository;
 import org.json.JSONException;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -21,6 +18,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,7 +29,6 @@ import org.springframework.transaction.annotation.Transactional;
                 MyConfig.class})
 @Transactional
 @TestPropertySource("classpath:application-test.properties")
-@Ignore
 public class LoginServiceEndpointIT {
 
     @Autowired
@@ -41,17 +38,13 @@ public class LoginServiceEndpointIT {
     private UserRepository userRepository;
 
     @Test
+    @Sql(scripts = "insertUsers.sql")
     public void testLogin_customer_expectsHttpResponse200WithValidJSONBody() throws JSONException {
         String expected = "{email:user@gmail.com}";
 
         LoginRequestDTO requestDTO = new LoginRequestDTO();
         requestDTO.email = "user@gmail.com";
         requestDTO.pass = "pass";
-
-        User user = new User();
-        user.setEmailAddress("user@gmail.com");
-        user.setPassword("pass");
-        userRepository.save(user);
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
