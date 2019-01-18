@@ -28,12 +28,14 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.0.6.RELEASE'
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.13'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.18.4'
 
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.0.6.RELEASE'
     testCompile group: 'com.h2database', name: 'h2', version: '1.4.197'
     testCompile group: 'org.mockito', name: 'mockito-all', version: '2.+'
     testCompile group: 'org.skyscreamer', name: 'jsonassert', version: '1.2.3'
     testCompile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.6'
+    testCompile group: 'nl.jqno.equalsverifier', name: 'equalsverifier', version: '3.1.4'
 }
 
 configurations {

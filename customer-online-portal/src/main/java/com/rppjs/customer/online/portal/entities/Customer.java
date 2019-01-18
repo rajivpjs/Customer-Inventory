@@ -1,10 +1,25 @@
 package com.rppjs.customer.online.portal.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
 import org.hibernate.annotations.GenericGenerator;
-import javax.persistence.*;
 
 @Table(name = "customers")
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode(exclude = "customerId")
+@ToString
 public class Customer {
 
     @Id
@@ -14,28 +29,4 @@ public class Customer {
     private String customerId;
     private String name;
     private String surname;
-
-    public String getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
 }

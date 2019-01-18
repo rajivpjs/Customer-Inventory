@@ -1,9 +1,26 @@
 package com.rppjs.customer.online.portal.entities;
 
-import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.Column;
 
 @Table(name = "users")
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode(exclude = {"emailAddress"})
+@ToString(exclude = "password")
 public class User {
 
     @Id
@@ -13,28 +30,4 @@ public class User {
     private Customer customer;
     @Column(name = "passw")
     private String password;
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
