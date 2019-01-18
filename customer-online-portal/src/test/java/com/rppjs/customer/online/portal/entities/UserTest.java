@@ -1,9 +1,9 @@
 package com.rppjs.customer.online.portal.entities;
 
+import static org.junit.Assert.*;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 
 public class UserTest {
 
