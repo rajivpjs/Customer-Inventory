@@ -6,7 +6,7 @@ import com.rppjs.customer.online.portal.configuration.MyConfig;
 import com.rppjs.customer.online.portal.configuration.UserConfiguration;
 import com.rppjs.customer.online.portal.dtos.RegistrationRequestDTO;
 import org.json.JSONException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.beans.factory.annotation.Autowired;

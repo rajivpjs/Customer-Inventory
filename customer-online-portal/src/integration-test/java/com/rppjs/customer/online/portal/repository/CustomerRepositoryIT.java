@@ -1,10 +1,10 @@
 package com.rppjs.customer.online.portal.repository;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.rppjs.customer.online.portal.configuration.H2Configuration;
 import com.rppjs.customer.online.portal.configuration.MyConfig;
 import com.rppjs.customer.online.portal.entities.Customer;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

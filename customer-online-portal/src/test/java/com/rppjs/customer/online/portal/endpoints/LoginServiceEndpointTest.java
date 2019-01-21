@@ -1,21 +1,20 @@
 package com.rppjs.customer.online.portal.endpoints;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.Matchers.anyString;
 import com.rppjs.customer.online.portal.dtos.LoginRequestDTO;
 import com.rppjs.customer.online.portal.dtos.LoginResponseDTO;
 import com.rppjs.customer.online.portal.service.LoginService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.MockitoAnnotations;
 import org.springframework.http.ResponseEntity;
 
-@RunWith(MockitoJUnitRunner.class)
 public class LoginServiceEndpointTest {
 
     @Mock
@@ -24,6 +23,11 @@ public class LoginServiceEndpointTest {
     @InjectMocks
     private static LoginServiceEndpoint loginServiceEndpoint = new
             LoginServiceEndpoint();
+
+    @BeforeAll
+    public void setup() {
+        MockitoAnnotations.initMocks(this);
+    }
 
     @Test
     public void testLogin_expectsHttpResponse200WithLoginResponseDTO() throws Exception {

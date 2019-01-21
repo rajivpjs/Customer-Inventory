@@ -1,6 +1,7 @@
 package com.rppjs.customer.online.portal.endpoints;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -11,8 +12,8 @@ import com.rppjs.customer.online.portal.entities.Customer;
 import com.rppjs.customer.online.portal.entities.User;
 import com.rppjs.customer.online.portal.repository.CustomerRepository;
 import com.rppjs.customer.online.portal.repository.UserRepository;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -29,7 +30,7 @@ public class RegistrationEndpointTest {
     @InjectMocks
     private RegistrationEndpoint registrationEndpoint = new RegistrationEndpoint(userMapper, userRepository, customerRepository);
 
-    @Before
+    @BeforeAll
     public void setup() {
         MockitoAnnotations.initMocks(this);
     }
@@ -64,7 +65,7 @@ public class RegistrationEndpointTest {
     }
 
     @Test
-    public void testRegisterCustomer_expectsHttpResponse400() throws Exception {
+    public void testRegisterCustomer_expectsHttpResponse400() {
         ResponseEntity<RegistrationResponseDTO> responseEntity = registrationEndpoint.
                 registerCustomer(new RegistrationRequestDTO());
 

@@ -1,14 +1,15 @@
 package com.rppjs.customer.online.portal.service.impl;
 
-import static junit.framework.TestCase.assertTrue;
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.rppjs.customer.online.portal.entities.User;
 import com.rppjs.customer.online.portal.repository.UserRepository;
 import com.rppjs.customer.online.portal.service.LoginService;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -22,7 +23,7 @@ public class SimpleLoginServiceImplTest {
     @InjectMocks
     private LoginService loginService = new SimpleLoginServiceImpl();
 
-    @Before
+    @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
     }
@@ -53,11 +54,12 @@ public class SimpleLoginServiceImplTest {
         verify(userRepository).findAll();
     }
 
-    @Test(expected = Exception.class)
+    @Test
     public void testLogin_expectsException() throws Exception {
         when(userRepository.findAll()).thenThrow(new RuntimeException());
 
-        loginService.login("user@gmail.com", "123");
+        assertThrows(RuntimeException.class, () ->
+                loginService.login("user@gmail.com", "123"));
 
         verify(userRepository).findAll();
     }

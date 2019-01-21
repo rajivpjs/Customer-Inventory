@@ -1,10 +1,10 @@
 package com.rppjs.customer.online.portal.dtos.mapper;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.rppjs.customer.online.portal.dtos.RegistrationRequestDTO;
 import com.rppjs.customer.online.portal.dtos.RegistrationResponseDTO;
 import com.rppjs.customer.online.portal.entities.User;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class UserMapperImplTest {
 
@@ -20,10 +20,10 @@ public class UserMapperImplTest {
 
         User user = userMapper.registrationRequestToUser(req);
 
-        Assert.assertEquals("user@gmail.com", user.getEmailAddress());
-        Assert.assertEquals("pass", user.getPassword());
-        Assert.assertEquals("name", user.getCustomer().getName());
-        Assert.assertEquals("lastName", user.getCustomer().getSurname());
+        assertEquals("user@gmail.com", user.getEmailAddress());
+        assertEquals("pass", user.getPassword());
+        assertEquals("name", user.getCustomer().getName());
+        assertEquals("lastName", user.getCustomer().getSurname());
     }
 
     @Test
@@ -33,7 +33,7 @@ public class UserMapperImplTest {
 
         RegistrationResponseDTO responseDTO = userMapper.userToRegistrationResponse(user);
 
-        Assert.assertEquals("user@gmail.com", responseDTO.email);
+        assertEquals("user@gmail.com", responseDTO.email);
     }
 
 }

@@ -1,13 +1,13 @@
 package com.rppjs.customer.online.portal.service.impl;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.rppjs.customer.online.portal.configuration.H2Configuration;
 import com.rppjs.customer.online.portal.configuration.LoginServiceConfiguration;
 import com.rppjs.customer.online.portal.configuration.MyConfig;
 import com.rppjs.customer.online.portal.entities.User;
 import com.rppjs.customer.online.portal.repository.UserRepository;
 import com.rppjs.customer.online.portal.service.LoginService;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -35,6 +35,6 @@ public class SimpleLoginServiceImplIT {
 
         userRepository.save(user);
 
-        Assert.assertTrue(simpleLoginService.login("user@gmail.com", "123"));
+        assertTrue(simpleLoginService.login("user@gmail.com", "123"));
     }
 }
