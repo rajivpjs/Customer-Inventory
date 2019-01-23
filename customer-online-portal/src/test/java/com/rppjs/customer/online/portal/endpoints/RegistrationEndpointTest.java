@@ -12,7 +12,7 @@ import com.rppjs.customer.online.portal.entities.Customer;
 import com.rppjs.customer.online.portal.entities.User;
 import com.rppjs.customer.online.portal.repository.CustomerRepository;
 import com.rppjs.customer.online.portal.repository.UserRepository;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -30,7 +30,7 @@ public class RegistrationEndpointTest {
     @InjectMocks
     private RegistrationEndpoint registrationEndpoint = new RegistrationEndpoint(userMapper, userRepository, customerRepository);
 
-    @BeforeAll
+    @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
     }

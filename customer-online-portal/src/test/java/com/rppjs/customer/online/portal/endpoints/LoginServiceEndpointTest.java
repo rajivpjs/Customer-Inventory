@@ -8,7 +8,7 @@ import static org.mockito.Matchers.anyString;
 import com.rppjs.customer.online.portal.dtos.LoginRequestDTO;
 import com.rppjs.customer.online.portal.dtos.LoginResponseDTO;
 import com.rppjs.customer.online.portal.service.LoginService;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -24,7 +24,7 @@ public class LoginServiceEndpointTest {
     private static LoginServiceEndpoint loginServiceEndpoint = new
             LoginServiceEndpoint();
 
-    @BeforeAll
+    @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
     }
