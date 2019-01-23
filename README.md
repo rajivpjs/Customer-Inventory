@@ -1,0 +1,2 @@
+# Customer-Inventory
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/49c32d49eadb4724bc22d3f10bc436c2)](https://app.codacy.com/app/rajivpjs/Customer-Inventory?utm_source=github.com&utm_medium=referral&utm_content=rajivpjs/Customer-Inventory&utm_campaign=Badge_Grade_Settings)
