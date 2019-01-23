@@ -1,21 +1,21 @@
 package com.rppjs.customer.online.portal.repository;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import com.rppjs.customer.online.portal.configuration.H2Configuration;
 import com.rppjs.customer.online.portal.configuration.MyConfig;
 import com.rppjs.customer.online.portal.entities.Customer;
 import com.rppjs.customer.online.portal.entities.User;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = {H2Configuration.class, MyConfig.class})
 @Transactional
 @TestPropertySource("classpath:application-test.properties")
@@ -39,7 +39,7 @@ public class UserRepositoryIT {
         userRepository.save(user);
 
         List<User> users = userRepository.findAll();
-        Assert.assertEquals(1, users.size());
-        Assert.assertSame(user.getEmailAddress(), users.get(0).getEmailAddress());
+        assertEquals(1, users.size());
+        assertSame(user.getEmailAddress(), users.get(0).getEmailAddress());
     }
 }
