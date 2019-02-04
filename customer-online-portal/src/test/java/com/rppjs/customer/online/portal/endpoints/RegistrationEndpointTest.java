@@ -72,5 +72,4 @@ public class RegistrationEndpointTest {
         assertEquals(400, responseEntity.getStatusCodeValue());
         assertNull(responseEntity.getBody());
     }
-
 }

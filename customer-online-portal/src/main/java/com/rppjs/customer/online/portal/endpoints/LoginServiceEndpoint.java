@@ -29,14 +29,14 @@ public class LoginServiceEndpoint {
 
         loginResponseDTO.email = loginRequestDTO.email;
 
-        if(simpleLoginService.login(loginRequestDTO.email, loginRequestDTO.pass)) {
+        if (simpleLoginService.login(loginRequestDTO.email, loginRequestDTO.pass)) {
             return new ResponseEntity<>(loginResponseDTO, HttpStatus.OK);
         }
         return new ResponseEntity<>(loginResponseDTO, HttpStatus.UNAUTHORIZED);
     }
 
     private boolean validateRequestDTO(@RequestBody LoginRequestDTO loginRequestDTO) {
-        if(StringUtils.isEmpty(loginRequestDTO.email) || StringUtils.isEmpty(loginRequestDTO.pass)) {
+        if (StringUtils.isEmpty(loginRequestDTO.email) || StringUtils.isEmpty(loginRequestDTO.pass)) {
             return true;
         }
         return false;
