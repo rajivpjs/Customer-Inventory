@@ -23,9 +23,8 @@ import org.hibernate.annotations.GenericGenerator;
 public class Customer {
 
     @Id
-    @GeneratedValue( generator = "uuid")
-    @GenericGenerator(name = "uuid",
-            strategy = "uuid")
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
     private String customerId;
     private String name;
     private String surname;

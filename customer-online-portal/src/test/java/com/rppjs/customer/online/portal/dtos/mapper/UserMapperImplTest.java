@@ -35,5 +35,4 @@ public class UserMapperImplTest {
 
         assertEquals("user@gmail.com", responseDTO.email);
     }
-
 }

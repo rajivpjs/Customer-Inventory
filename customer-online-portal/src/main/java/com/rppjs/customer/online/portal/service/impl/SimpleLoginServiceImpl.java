@@ -19,8 +19,7 @@ public class SimpleLoginServiceImpl implements LoginService {
             return users.stream().anyMatch(user ->
                     user.getEmailAddress().equals(username) &&
                             user.getPassword().equals(password));
-        }
-        catch(Exception e) {
+        } catch(Exception e) {
             throw e;
         }
     }
