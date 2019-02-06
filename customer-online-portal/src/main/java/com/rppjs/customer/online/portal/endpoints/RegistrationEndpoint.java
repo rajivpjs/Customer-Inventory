@@ -46,11 +46,8 @@ public class RegistrationEndpoint {
     }
 
     private boolean validateRequestDTO(@RequestBody RegistrationRequestDTO req) {
-        if (StringUtils.isEmpty(req.email) || StringUtils.isEmpty(req.pass)
+        return (StringUtils.isEmpty(req.email) || StringUtils.isEmpty(req.pass)
                 || StringUtils.isEmpty(req.firstName)
-                || StringUtils.isEmpty(req.lastName)) {
-            return true;
-        }
-        return false;
+                || StringUtils.isEmpty(req.lastName));
     }
 }

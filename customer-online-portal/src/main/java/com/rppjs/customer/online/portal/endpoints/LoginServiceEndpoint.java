@@ -36,9 +36,6 @@ public class LoginServiceEndpoint {
     }
 
     private boolean validateRequestDTO(@RequestBody LoginRequestDTO loginRequestDTO) {
-        if (StringUtils.isEmpty(loginRequestDTO.email) || StringUtils.isEmpty(loginRequestDTO.pass)) {
-            return true;
-        }
-        return false;
+        return (StringUtils.isEmpty(loginRequestDTO.email) || StringUtils.isEmpty(loginRequestDTO.pass));
     }
 }

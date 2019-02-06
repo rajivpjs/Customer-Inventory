@@ -5,7 +5,6 @@ import com.rppjs.customer.online.portal.configuration.H2Configuration;
 import com.rppjs.customer.online.portal.configuration.LoginServiceConfiguration;
 import com.rppjs.customer.online.portal.configuration.MyConfig;
 import com.rppjs.customer.online.portal.dtos.LoginRequestDTO;
-import com.rppjs.customer.online.portal.repository.UserRepository;
 import org.json.JSONException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -33,9 +32,6 @@ public class LoginServiceEndpointIT {
 
     @Autowired
     private TestRestTemplate restTemplate;
-
-    @Autowired
-    private UserRepository userRepository;
 
     @Test
     @Sql(scripts = "insertUsers.sql")
