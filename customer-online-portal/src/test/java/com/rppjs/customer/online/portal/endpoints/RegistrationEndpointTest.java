@@ -31,7 +31,7 @@ public class RegistrationEndpointTest {
     private RegistrationEndpoint registrationEndpoint = new RegistrationEndpoint(userMapper, userRepository, customerRepository);
 
     @BeforeEach
-    public void setup() {
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
     }
 

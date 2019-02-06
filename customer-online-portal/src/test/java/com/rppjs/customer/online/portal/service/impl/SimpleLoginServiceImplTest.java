@@ -24,7 +24,7 @@ public class SimpleLoginServiceImplTest {
     private LoginService loginService = new SimpleLoginServiceImpl();
 
     @BeforeEach
-    public void setup() {
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
     }
 

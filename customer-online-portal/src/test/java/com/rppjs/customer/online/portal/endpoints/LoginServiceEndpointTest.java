@@ -25,7 +25,7 @@ public class LoginServiceEndpointTest {
             LoginServiceEndpoint();
 
     @BeforeEach
-    public void setup() {
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
     }
 

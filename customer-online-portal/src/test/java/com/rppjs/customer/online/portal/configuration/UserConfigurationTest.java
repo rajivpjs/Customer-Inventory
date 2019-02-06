@@ -5,11 +5,9 @@ import org.junit.jupiter.api.Test;
 
 public class UserConfigurationTest {
 
-    private UserConfiguration userConfiguration;
-
     @Test
     public void testUserMapper() {
-        userConfiguration = new UserConfiguration();
+        UserConfiguration userConfiguration = new UserConfiguration();
         assertNotNull(userConfiguration.userMapper());
     }
 }
